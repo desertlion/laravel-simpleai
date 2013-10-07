@@ -1,0 +1,30 @@
+* { margin: 0 auto; padding: 0;}
+body { background: #000 url(../img/bckg.jpg) no-repeat top left; font-family: sans-serif; color: #FFF; }
+h1 { background: url(../img/logo.jpg) no-repeat top center; margin: 50px auto; width: 367px; height: 90px; overflow: hidden; text-indent: -200%;}
+a { color: #bbd9f6; }
+a:hover { color: #5c86b2; }
+#container { max-width: 800px; }
+#header { background: url(../img/header.jpg) no-repeat top center; max-width: 800px; height: 48px; padding-top: 340px;}
+ul#navigasi { list-style: none; margin: 0; max-width: 800px;height: 48px; background: url(../img/bar.jpg) repeat-x top center; padding: 15px 0 0 0; text-align: center; }
+ul#navigasi a { text-decoration: none; text-transform: uppercase; font-weight: bold; font-size: 14px; text-decoration: none; display: inline-block; text-shadow: 0px -1px 2px rgba(0,0,0,.3); }
+ul#navigasi li { display: inline-block; margin-right: 30px; }
+#content { background: #2c3e50 url(../img/wrapper.jpg) repeat-x top center; padding: 20px; overflow: hidden; position: relative; z-index: 1; }
+img#gambar-home { top: -20px; left: -20px; position: relative; z-index: 1;}
+img#gambar-heroes { margin: -20px 0 0 -20px; }
+p#home-txt {z-index: 9999; position: relative; margin-left: 210px; margin-top: -330px; line-height: 2em;}
+
+.app-header { overflow: hidden; padding: 0 20px 15px 20px; background: url(../img/pembatas.jpg) repeat-x bottom center; margin: 0 -20px; }
+.app-header h2 { text-shadow: 0 2px 3px rgba(0,0,0,.5); float: left; }
+.app-header a { background: #111821 url(../img/tombol.jpg) repeat-x top center; display: inline-block; float: right; padding: 10px 17px; text-decoration: none; position: relative; }
+.app-header a:hover { background: #18222c url(../img/tombol2.jpg) repeat-x top center; }
+.app-header a:active { top: 2px; }
+
+#footer { background: url(../img/bar.jpg) repeat-x top center; max-width: 800px; height: 48px; text-align: center; padding-top: 15px; margin-bottom: 30px; }
+
+div#form-loader { background: rgba(0,0,0,.8); padding: 20px; margin: 0 auto; clear: both; }
+hr { border: none; border-top: 1px solid #ddd; outline: none; margin: 10px 0; }
+
+form div { margin: 10px 0;}
+form label { display: block; margin-bottom: 5px; }
+form input[type=text] { width: 200px; padding: 5px 7px;}
+form input[type=submit], button { width: 220px; padding: 5px 7px; display: inline-block;}
