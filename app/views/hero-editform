@@ -1,0 +1,14 @@
+<h3>Edit Hero</h3>
+{{ Form::open(array('route'=>array('updatehero',$hero->id),'files'=>'true') }}
+	<div>
+		{{ Form::label('namahero','Nama Hero') }}
+		{{ Form::text('namahero',$hero->hero_name) }}
+	</div>
+	<div>
+		{{ Form::label('heroimg','Hero Image') }}
+		{{ Form::file('heroimg') }}
+	</div>
+	<div>
+		{{ Form::submit('edit hero') }}
+	</div>
+{{ Form::close() }}

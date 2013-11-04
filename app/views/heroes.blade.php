@@ -7,10 +7,14 @@
 		<div id="form-loader">
 			<h3>Tambah Hero Baru</h3>
 			<hr>
-			{{ Form::open() }}
+			{{ Form::open(array('url'=>'hero/store','files'=>'true')) }}
 				<div>
 					{{ Form::label('namahero','Nama Hero') }}
 					{{ Form::text('namahero') }}
+				</div>
+				<div>
+					{{ Form::label('heroimg','Hero Image') }}
+					{{ Form::file('heroimg') }}
 				</div>
 				<div>
 					{{ Form::submit('tambah hero') }}
@@ -18,4 +22,16 @@
 			{{ Form::close() }}
 		</div>
 	</div>
+	@if(count($heroes)>0)
+	<ul id="hero-list">
+		@foreach($heroes as $hero)
+		<li>
+			<a class="fancybox fancybox.ajax" href="{{ route('herodetail',$hero->id) }}">
+				<img src="{{ Asset('img/heroimg/'.$hero->hero_img) }}" alt="{{ $hero->name}}">
+				<div>{{ $hero->hero_name }}</div>
+			</a>
+		</li>
+		@endforeach
+	</ul>
+	@endif
 @stop

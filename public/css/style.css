@@ -1,5 +1,6 @@
 * { margin: 0 auto; padding: 0;}
-body { background: #000 url(../img/bckg.jpg) no-repeat top left; font-family: sans-serif; color: #FFF; }
+html { background: #000 url(../img/bckg.jpg) no-repeat top left; font-family: sans-serif; color: #FFF; height: 100%;}
+body { background: url(../img/rylai.jpg) no-repeat bottom right; min-height: 100%; }
 h1 { background: url(../img/logo.jpg) no-repeat top center; margin: 50px auto; width: 367px; height: 90px; overflow: hidden; text-indent: -200%;}
 a { color: #bbd9f6; }
 a:hover { color: #5c86b2; }
@@ -13,7 +14,7 @@ img#gambar-home { top: -20px; left: -20px; position: relative; z-index: 1;}
 img#gambar-heroes { margin: -20px 0 0 -20px; }
 p#home-txt {z-index: 9999; position: relative; margin-left: 210px; margin-top: -330px; line-height: 2em;}
 
-.app-header { overflow: hidden; padding: 0 20px 15px 20px; background: url(../img/pembatas.jpg) repeat-x bottom center; margin: 0 -20px; }
+.app-header { overflow: hidden; padding: 0 20px 15px 20px; background: url(../img/pembatas.jpg) repeat-x bottom center; margin: 0 -20px 20px -20px; }
 .app-header h2 { text-shadow: 0 2px 3px rgba(0,0,0,.5); float: left; }
 .app-header a { background: #111821 url(../img/tombol.jpg) repeat-x top center; display: inline-block; float: right; padding: 10px 17px; text-decoration: none; position: relative; }
 .app-header a:hover { background: #18222c url(../img/tombol2.jpg) repeat-x top center; }
@@ -26,5 +27,25 @@ hr { border: none; border-top: 1px solid #ddd; outline: none; margin: 10px 0; }
 
 form div { margin: 10px 0;}
 form label { display: block; margin-bottom: 5px; }
-form input[type=text] { width: 200px; padding: 5px 7px;}
-form input[type=submit], button { width: 220px; padding: 5px 7px; display: inline-block;}
+form input[type=text] { min-width: 300px; padding: 5px 7px;}
+form input[type=submit], button { width: 320px; padding: 5px 7px; display: inline-block;}
+ul#hero-list { list-style: none; margin: 0; }
+ul#hero-list li { display: inline-block; border: 4px solid #263259; width: 24%; position: relative; overflow: hidden; }
+ul#hero-list li img { border: none; outline: none; min-width: 100%; max-width: 100%; margin: 0; padding: 0; }
+ul#hero-list div { background: rgba(0,0,0,.8); padding: 10px; position: absolute; bottom: -100%; text-align: center; min-width: 90%; max-width: 100%; }
+ul#hero-list a:hover div { bottom: 0; }
+
+.alert-box { padding: 10px; margin: -20px -20px 0 -20px; }
+.alert-box.success { background: #8fe064; }
+.alert-box.error { background: #a34e34; }
+table { width: 100%; }
+td,th { padding: 10px; border: 1px solid #141d25; }
+a.btn { display:inline-block; padding: 5px 7px; background: #111821 url(../img/tombol.jpg) repeat-x top center; text-decoration: none; font-size: 10px; }
+
+#hero-frame{ width: 540px; overflow: hidden; background: #2d3e50; padding: 20px; }
+#hero-frame h2, #hero-footer { background: url(../img/bar.jpg) repeat-x top center; color: #FFF; text-align: center; font-weight: bold; }
+#hero-frame h2 { font-size: 14px; padding: 10px; margin: -20px -20px 20px -20px; }
+#hero-footer { padding: 10px 0; }
+#hero-frame img { float: left; margin-right: 20px; width: 136px; height: 136px; }
+#hero-frame div { float: right; width: 384px; color: #FFF; line-height: 2em; font-size: .9em; }
+#hero-frame ul { list-style-position: inside; }
