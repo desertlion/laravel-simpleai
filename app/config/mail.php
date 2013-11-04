@@ -93,7 +93,7 @@ return array(
 	|
 	*/
 
-	'password' => 'the vanguard knight is here',
+	'password' => '',
 
 	/*
 	|--------------------------------------------------------------------------
