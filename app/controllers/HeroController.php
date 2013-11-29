@@ -132,8 +132,44 @@ class HeroController extends BaseController
 
 		if($jml>0)
 		{
+			//ambil ciri pertama
 			$soal = Analisa::first()->toArray();
+			$looping = true;			
+			while( $looping )
+			{
+				//hitung jumlah hero dengan ciri tersebut
+				$hero = count(Analisa::where('ciri_id',$soal['ciri_id'])->groupBy('hero_id'));
+
+				if($hero == $jml)
+				{
+					//hapus ciri tersebut, lanjut ke pertanyaan berikutnya
+					//jika ternyata soalnya habis dan jumlah heronya masih sma
+					//jangan didelete
+
+					//hitung dulu jumlah hero yang tersisa kalau id ini bakal di delete
+					$willBeDeleted = count(Analisa::where('ciri_id',$soal['ciri_id'])->groupBy('hero_id'));
+
+					//klo ternyata yang mau didelete jumlahnya sama dengan $jml
+					//berarti itu dah hero-hero terakhir
+					//itulah kesimpulannya
+					if($willBeDeleted == $jml) return Redirect::route('kesimpulan');
+					
+					//klo tidak berarti soal bisa dipakai
+					Analisa::where('ciri_id',$soal['ciri_id'])->delete();
+					$soal = Analisa::first()->toArray();
+				}
+				else
+				{
+					$looping = false;
+				}
+			}
+			
 			$soal = Ciri::find($soal['ciri_id']);
+
+		}
+		elseif($jml==1)
+		{
+			return Redirect::route('kesimpulan');
 		}
 		else
 		{
@@ -194,8 +230,18 @@ class HeroController extends BaseController
 		else
 		{
 			//cari seluruh hero yang memenuhi syarat
-			$heroes = ($input['ciri']=='ya') ? Cirihero::where('ciri_id',$input['id'])->get()->lists('hero_id')
-											 : Cirihero::whereNotIn('ciri_id',array($input['id']))->get()->lists('hero_id');
+			if($input['ciri']=='ya')
+			{
+				$heroes = Cirihero::where('ciri_id',$input['id'])->get()->lists('hero_id');
+			}
+			else
+			{
+				$heroes = Cirihero::where('ciri_id',$input['id'])->get()->lists('hero_id');
+				$heroes = Cirihero::whereNotIn('hero_id',$heroes)->groupBy('hero_id')->get()->lists('hero_id');
+			}
+			
+			//$queries = DB::getQueryLog();
+			//$last_query = end($queries);
 			
 			//echo '<pre>';dd($heroes);echo '</pre>';
 			//ambil seluruh data hero-hero tersebut, pindahkan ke table analisa
@@ -229,6 +275,8 @@ class HeroController extends BaseController
 	{
 		$analisa = Analisa::groupBy('hero_id')->get()->lists('hero_id');
 		$heroes = Hero::whereIn('id',$analisa)->get();
+
+		Analisa::truncate();
 
 		return View::make('heroes-conclusion',array('heroes'=>$heroes));
 	}
